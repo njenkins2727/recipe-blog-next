@@ -1,8 +1,8 @@
 import '@styles/global.css'
 
 export const metadata = {
-    title: "Title text",
-    description: 'Discover and Save amazing recipes'
+    title: "Onebusyweek",
+    description: '7 days, 7 Recipes'
 }
 
 const RootLayout = ({ children }) => {
