@@ -1,0 +1,19 @@
+import React from 'react'
+
+const RecipeCard = ({ name, desc, data, img, imgAlt }) => {
+  return (
+    // do i need to make img src -> img url(image address)
+    <div className="card lg:card-side bg-base-100 shadow-xl">
+        <figure><img src={img} alt={imgAlt}/></figure> 
+        <div className="card-body">
+                <h2 className="card-title">{name}</h2>
+                <p>{desc}</p>
+            <div className="card-actions justify-end">
+                {data}
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default RecipeCard
