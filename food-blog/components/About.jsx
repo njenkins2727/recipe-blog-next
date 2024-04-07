@@ -3,9 +3,9 @@ import React from 'react'
 const About = () => {
   return (
 <div className='bg-base-100'>
-    <div className='flex flex-col mx-72'>
-        <h1 className='font-playfair font-semibold text-3xl mt-5'>About</h1>
-        <p className='font-inter mt-3'>Welcome to OneBusyWeek!
+    <div className='flex flex-col mx-72 my-7'>
+        <h1 className='font-playfair font-semibold text-3xl mt-3'>Welcome to OneBusyWeek!</h1>
+        <p className='font-inter mt-5'>
 
         At OneBusyWeek, we understand the challenges of juggling a busy schedule while still wanting to enjoy delicious and nutritious meals. That's why we're here to make your life easier with a collection of quick, easy, and mouthwatering recipes that are perfect for your hectic days.<br/><br/>
 
