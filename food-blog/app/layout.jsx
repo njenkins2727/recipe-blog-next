@@ -1,4 +1,5 @@
 import '@styles/global.css'
+import Provider from '@components/Provider'
 
 export const metadata = {
     title: "Onebusyweek",
@@ -9,7 +10,9 @@ const RootLayout = ({ children }) => {
     return (
       <html lang='en'>
           <body>
-            {children}
+            <Provider>
+              {children}
+            </Provider>
           </body>
       </html>
     )
