@@ -11,11 +11,6 @@ const Home = () => {
       <Hero/>
       <About/>
       <RecipeCard
-      // name=
-      // desc= 
-      // data={}
-      // img= 
-      // imgAlt=
       />
       <Footer/>
     </section>

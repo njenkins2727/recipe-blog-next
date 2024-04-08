@@ -49,3 +49,8 @@ const destroyData = async () => {
 if(process.argv[2] == '-d') destroyData();
 else importData();
 importData();
+
+
+
+// add "type": module," at the top of the package json file to seed data. 
+// after adding above. type "node seeder.js" in the command terminal 
