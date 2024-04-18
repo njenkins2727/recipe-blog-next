@@ -36,7 +36,13 @@ const recipeData = [
             'Vegeta'
         ],
         method:[
-
+            'Marinade pork in vegeta for 12 hours or overnight',
+            'Cook rice',
+            'Place pot on medium-high, add oil to sautee onion until translucent. Add garlic and cook for 1 minute further.',
+            'Add pork until it completly changes colour',
+            'Add vinegar and mix to combine, let the pot sit for 30 seconds. Then add soy sauce, bay leaves, lemongrass and pepper. Mix till combined well.',
+            'Add boiling water then simmer until you reach desired thickness',
+            'Serve over rice and enjoy!'
         ],
     },
     {
@@ -58,8 +64,14 @@ const recipeData = [
             'Feta and Parsley (to serve)',
         ],
         method:[
-
+            'Bring pot of water to boil',
+            'Place in a bowl; mince, breadcrumbs, egg, oregano and 1/3 of the onion. Season with salt and pepper. Combine well, roll into balls',
+            'Heat oil in the pot over medium-high heat. Cook meatballs, in batches, turning, until browned all over.',
+            'Heat oil in pan over medium heat. Add remaining onion. Cook, stirring, until onion is softened. Add garlic. Cook for 1 minute.',
+            'Add white wine. Simmer, stirring, for 1 minute. Stir in tomatoes and stock. Add back your meatballs. Cover. Bring to the boil. Reduce heat to low. Simmer, covered, for 10 minutes',
+            'Add your risoni to salted boiling pot of water, drain when complete',
+            'Serve Meatballs over risoni. Optionally garnish with feta and corriander.'
         ],
-    }
+    },
 ];
 export default recipeData;
