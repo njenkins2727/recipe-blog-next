@@ -2,7 +2,7 @@ import Hero from '@components/Hero'
 import Nav from '../components/Nav'
 import About from '@components/About'
 import Footer from '@components/Footer'
-import RecipeCard from '@components/RecipeCard'
+import Feed from '../components/Feed'
 
 const Home = () => {
   return (
@@ -10,8 +10,7 @@ const Home = () => {
       <Nav/>
       <Hero/>
       <About/>
-      <RecipeCard
-      />
+      <Feed/>
       <Footer/>
     </section>
   )

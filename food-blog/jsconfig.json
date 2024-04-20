@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@*": ["/*"]
+      "@*": ["/*"] //i took out '@' from 4:7
     }
   }
 }
