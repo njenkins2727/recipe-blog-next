@@ -52,5 +52,5 @@ importData();
 
 
 
-// add "type": module," at the top of the package json file to seed data. 
+// add "type": "module", at the top of the package json file to seed data. 
 // after adding above. type "node seeder.js" in the command terminal 

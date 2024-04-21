@@ -4,7 +4,7 @@ import RecipeCard from '@components/RecipeCard'
 
 const RecipeCardList = ({ data }) => {
     return (
-      <div>
+      <div className='flex flex-row'>
         {data.map((recipe => (
           <RecipeCard
           key={recipe._id}
@@ -30,7 +30,6 @@ const Feed = () => {
 
   return (
     <div>
-        Feed
         <RecipeCardList
         data={recipe}
         />

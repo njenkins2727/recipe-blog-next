@@ -1,4 +1,4 @@
-import Recipe from "../../../models/recipe";
+import Recipe from "../../../models/recipe.js";
 import { connectToDB } from "../../../utils/database";
 
 export const GET = async (request) => {

@@ -1,4 +1,4 @@
-import Recipe from "../../../../models/recipe";
+import Recipe from "../../../../models/recipe.js";
 
 //Get (read)
 export const GET = async (request, { params }) => {
