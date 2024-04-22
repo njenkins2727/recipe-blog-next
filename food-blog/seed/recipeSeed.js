@@ -73,5 +73,53 @@ const recipeData = [
             'Serve Meatballs over risoni. Optionally garnish with feta and corriander.'
         ],
     },
+    {
+        title: 'Vietnamese Pork Mince',
+        desc: 'Simple dish, simple foods, elevated flavours. You do not want to pass on this recipe.',
+        image: 'https://poshjournal.com/wp-content/uploads/2020/08/vietnamese-caramelized-pork-bowls-5.jpg',
+        ingredient: [
+        '500g pork mince',
+        'Fish sauce',
+        'Lemongrass',
+        'Soy sauce',
+        'Brown sugar',
+        'White onion',
+        'Red onion',
+        'Cucumber',
+        'Coriander',
+        'Rice'
+        ],
+        method: [
+            'Cook rice or noodles put to side',
+            'Add oil to pan cook onion till soften. Add and break up mince untill cook through',
+            'Add fish sauce, lemongrass, soy sauce and brown sugar. Mix to combine.',
+            'Add meat onto bed of rice, add your toppings sliced red onion, sliced cucumber, corriander and spring onion. Enjoy!'
+        ],
+    },
+    {
+        title: 'Teriyaki Salmon',
+        desc: 'Simple dish, simple foods, elevated flavours. You do not want to pass on this recipe.',
+        image: 'https://theresalwayspizza.com/assets/media/242Teriyaki%20Salmon.jpg',
+        ingredient: [
+            '2 1/2 lbs salmon filet',
+            '3 Tbsp teriyaki sauce',
+            '3 Tbsp hoisin sauce',
+            '3 Tbsp soy sauce',
+            '1 Tbsp white vinegar',
+            '1 Tbsp sesame oil',
+            '1/3 cup packed light brown sugar',
+            '2 large or 3 medium garlic cloves, minced',
+            '2 tsp freshly grated ginger, or 1/2 tsp ground ginger',
+            'sesame seeds',
+            'green onion',
+            'rice'
+        ],
+        method: [
+            'Cook rice or noodles put to side',
+            'Add oil to pan cook onion till soften. Add and break up mince untill cook through',
+            'Add fish sauce, lemongrass, soy sauce and brown sugar. Mix to combine.',
+            'Add meat onto bed of rice, add your toppings sliced red onion, sliced cucumber, corriander and spring onion. Enjoy!'
+        ],
+    },
 ];
 export default recipeData;
