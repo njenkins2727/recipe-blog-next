@@ -121,5 +121,26 @@ const recipeData = [
             'Add meat onto bed of rice, add your toppings sliced red onion, sliced cucumber, corriander and spring onion. Enjoy!'
         ],
     },
+    {
+        title: 'Chicken and Rice',
+        desc: 'Simple dish, simple foods, elevated flavours. You do not want to pass on this recipe.',
+        image: 'https://lh4.googleusercontent.com/0e5wzOz0ZQykkgtgWEh-9oolJRGmeDfjn_JXzTMg_FgHNaqr5_gFk1rf5GuNGEJMqz7rPqQi_A0KtmhFzBWuzJavrusYzrKkFnqB_clb6WOPJo38gxt3_eS0fLLpkI8KuZcNK9yR',
+        ingredient: [
+            'garlic powder',
+            'onion powder',
+            'smoked paprika',
+            'cumin',
+            'chicken breast',
+            'rice',
+            'salt and pepper',
+            'green onion (optional)',
+        ],
+        method: [
+            'Cook rice',
+            'butterfly chicken and beat to tenderise the meat. coat with seasoning and salt and pepper.',
+            'Oil pan and cook chicken on medium heat. cook 3-5 min on both sides or until cook through',
+            'Serve chicken over rice and garnish with spring onion'
+        ],
+    },
 ];
 export default recipeData;
