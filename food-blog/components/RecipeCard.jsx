@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation';
 const RecipeCard = ({ data }) => {
   const router = useRouter()
 
- const ViewRecipe = async () => { //trying to make this async function, otherwise viewrecipe() activates as soon as the recipes load .
-  let promise = new Promise((resolve, reject) => {
+ const ViewRecipe = async () => { 
+  let promise = new Promise(() => {
     router.push(`/view-recipe?id=${data._id}`)  
   })
   let outcome = await promise 
