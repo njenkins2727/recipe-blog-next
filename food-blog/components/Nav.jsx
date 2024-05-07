@@ -18,7 +18,7 @@ const Nav = () => {
   return (
   <div className="navbar bg-transparent">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl font-inter">OneBusyWeek</a>
+        <a href="/" className="btn btn-ghost text-xl font-inter">OneBusyWeek</a>
       </div>
 
     {session?.user ? ( //if session is true and user is logged in 
