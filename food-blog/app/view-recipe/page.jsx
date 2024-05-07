@@ -1,22 +1,41 @@
 'use client'
-
-// import { useEffect, useState } from "react"
-import React from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const ViewRecipe = () => {
+const searchParams = useSearchParams();
+let searchId = searchParams.get('id');
+const [recipe, setRecipe] = useState([]);
+const [ingredient, setIngredient] = useState([]);
+const [method, setMethod] = useState([]);
 
-//   const [recipes, addRecipes] = useState([]);
+  useEffect(() => {
+    const fetchRecipes = async () => {
+        const response = await fetch(`/api/recipes/${searchId}`) 
+        const data = await response.json();
+        setRecipe(data);
+        setIngredient(data.ingredient);
+        setMethod(data.method); //created another useState and used the map method to iterate over these arrays 
+      }
+      fetchRecipes();
+    },[])
+    
+    return (
+      <div>
+  <h1>{recipe.title}</h1>    
+  <p>{recipe.desc}</p>
+  <img src={recipe.image} className="h-72 w-96" alt="picture of food" />
 
-  // useEffect(() => {
-  //   const fetchRecipes = async () => {
-  //       const response = await fetch(`/api/recipes/`) 
-  //       console.log(response)
-  //   }
-  //   fetchRecipes();
-  // }, [])
+  <h1>Ingredients</h1>
+    {ingredient.map(function(value, index){
+      return <li key={index}>{value}</li>
+    })}
 
-  return (
-    <div>ViewRecipe</div>
+  <h1>Method</h1>
+    {method.map(function(value, index){
+      return <li key={index}>{value}</li>
+    })}
+  </div>
   )
 }
 
