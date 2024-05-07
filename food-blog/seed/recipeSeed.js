@@ -142,5 +142,30 @@ const recipeData = [
             'Serve chicken over rice and garnish with spring onion'
         ],
     },
+    {
+        title: 'Chicken chickpea salad ',
+        desc: 'Healthy, filling and delicious? This is definitly one to add to your rotation. Trust me. ',
+        image: 'https://images.unsplash.com/photo-1505576633757-0ac1084af824?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        ingredient: [
+            'chicken breast',
+            'chickpea',
+            'lettuce',
+            'tomato',
+            'cucumber',
+            'red onion',
+            'smoked paprika',
+            'garlic powder',
+            'onion powder',
+            'cumin',
+            'oregano',
+            'lemon juice',
+        ],
+        method: [
+            'Butterfly chicken and beat to tenderise the meat. coat with salt and pepper and seasonings.',
+            'Oil pan and cook chicken on medium heat. cook 3-5 min on both sides or until cook through',
+            'Add vegetables in a bowl. Add lemon juice and olive oil.',
+            'Dice chicken and add to salad mixture. Serve immediately or let cool first before consuming.',
+        ],
+    },
 ];
 export default recipeData;
