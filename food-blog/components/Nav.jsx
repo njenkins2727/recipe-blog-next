@@ -24,7 +24,7 @@ const Nav = () => {
     {session?.user ? ( //if session is true and user is logged in 
     <div className="flex-none">
 
-    <Link href='/' className="btn btn-ghost text-xl font-inter">
+    <Link href='/saved-recipes' className="btn btn-ghost text-xl font-inter">
     Saved
     </Link> 
 
