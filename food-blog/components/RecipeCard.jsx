@@ -26,9 +26,6 @@ const RecipeCard = ({ data }) => {
 
   const AddSave = async () => {
     // Set items in array
-    // if(localStorage.getItem(userId)){
-    //   dataIdArr = JSON.parse(localStorage.getItem(userId));
-    //   };
     if(!dataIdArr.includes(data._id)){
       dataIdArr.push(data._id);
       setSaved(true);
