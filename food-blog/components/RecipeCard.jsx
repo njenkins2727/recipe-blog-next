@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from "next-auth/react"
 
@@ -10,36 +10,31 @@ const RecipeCard = ({ data }) => {
   const userId = session?.user.id
   let dataIdArr = [];
   
-  
-  useEffect(() => {
-    const showSaved = async () => {
-      //find if items are saved into users localstorage 
-      // get items in local storage array
-      let newdataIdArr = await JSON.parse(localStorage.getItem(userId)); 
-      //if data._id is in above array setSaved on these items as true 
-        if(newdataIdArr.includes(data._id)){
-          setSaved(true); 
-          console.log('items saved as true!')
-        }else {
-          // whatever else isnt in user local storage set false
-          setSaved(false);
-        }
-
+  const loadSavedData = useCallback(async () => {
+    try {
+      dataIdArr = await JSON.parse(localStorage.getItem(userId)); 
+      dataIdArr.includes(data._id) ? setSaved(true) : setSaved(false);
+     return console.log('works');
+    } catch (error) {
+      console.log('.')
     }
-  showSaved();
-  }, [])
+  }, [dataIdArr]);
+
+  useEffect(() => {
+    loadSavedData();
+  }, [loadSavedData]);
 
   const AddSave = async () => {
     // Set items in array
-    if(localStorage.getItem(userId)){
-      dataIdArr = JSON.parse(localStorage.getItem(userId));
-      };
+    // if(localStorage.getItem(userId)){
+    //   dataIdArr = JSON.parse(localStorage.getItem(userId));
+    //   };
     if(!dataIdArr.includes(data._id)){
       dataIdArr.push(data._id);
       setSaved(true);
       } else if(dataIdArr.includes(data._id)){
       // Find index of item you want to delete 
-      const dataIdIndex = dataIdArr.indexOf(data._id);
+      let dataIdIndex = dataIdArr.indexOf(data._id);
       //delete item from array 
       dataIdArr.splice(dataIdIndex, 1);
       setSaved(false);
