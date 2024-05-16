@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from "next-auth/react"
+import { jsx } from 'react/jsx-runtime';
 
 const RecipeCard = ({ data }) => {
   const router = useRouter()
@@ -10,13 +11,20 @@ const RecipeCard = ({ data }) => {
   const userId = session?.user.id
   let dataIdArr = [];
   
+  // creating Callback function to use for when you load into the page 
   const loadSavedData = useCallback(async () => {
     try {
+      // If theres no item in localStorage, set current dataIdArr
+      if(!localStorage.getItem(userId)){
+        localStorage.setItem(userId, dataIdArr);
+      }
+      // If there is items in users localstorage, make setSaved as true for all items saved in localstorage.  
+      else{ 
       dataIdArr = await JSON.parse(localStorage.getItem(userId)); 
       dataIdArr.includes(data._id) ? setSaved(true) : setSaved(false);
-     return console.log('works');
+      }
     } catch (error) {
-      console.log('.')
+      console.log('Error on load', error)
     }
   }, [dataIdArr]);
 
@@ -25,18 +33,23 @@ const RecipeCard = ({ data }) => {
   }, [loadSavedData]);
 
   const AddSave = async () => {
-    // Set items in array
+
+    //Get dataIdArr to return empty array for below items to actually be able to add to array 
+    dataIdArr = JSON.parse(localStorage.getItem(userId) || '[]'); 
+    // When data Id Arr doesnt include recipe data, add the recipe id to the data Id Arr and setSaved as true to fill saved icon. 
     if(!dataIdArr.includes(data._id)){
       dataIdArr.push(data._id);
-      setSaved(true);
-      } else if(dataIdArr.includes(data._id)){
+        setSaved(true);
+      } 
+    // When data Id Arr does include recipe id, find the index of this recipe id and delete from data array 
+    else if(dataIdArr.includes(data._id)){
       // Find index of item you want to delete 
-      let dataIdIndex = dataIdArr.indexOf(data._id);
+        let dataIdIndex = dataIdArr.indexOf(data._id);
       //delete item from array 
-      dataIdArr.splice(dataIdIndex, 1);
-      setSaved(false);
+        dataIdArr.splice(dataIdIndex, 1);
+        setSaved(false);
       }
-  
+    // Save data array to local storage for saved-recipe page to display. 
   localStorage.setItem(userId, JSON.stringify(dataIdArr)); 
 }
 
