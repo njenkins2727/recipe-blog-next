@@ -22,7 +22,7 @@ const [method, setMethod] = useState([]);
       fetchRecipes();
     },[])
     
-  return ( //Need to add a saved button, fix mobile Sm view, (center items / change nav to hamburger button?). could add time (prep and cook), could add gf rating, change list decorations numbers and dot points. 
+  return ( //Need to add a saved button, add creator and source in db, fix mobile Sm view, (center items / change nav to hamburger button?). could add time (prep and cook), could add gf rating, change list decorations numbers and dot points. 
 <div>
   <Nav/>
 
@@ -30,6 +30,9 @@ const [method, setMethod] = useState([]);
 
 {/* Title */}
 <h1 class="text-3xl font-bold mb-4">{recipe.title}</h1>
+
+{/* Description */}
+<p class="mb-4 font-inter">{recipe.desc}</p>
 
 {/* Image */}
 <img src={recipe.image} alt="Recipe Image" class="w-full rounded-md mb-4"/>
