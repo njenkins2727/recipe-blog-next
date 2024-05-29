@@ -22,36 +22,45 @@ const [method, setMethod] = useState([]);
       fetchRecipes();
     },[])
     
-  return (
+  return ( //Need to add a saved button, fix mobile Sm view, (center items / change nav to hamburger button?). could add time (prep and cook), could add gf rating, change list decorations numbers and dot points. 
 <div>
   <Nav/>
-    <div className='bg-stone-800 h-fit w-9/12 ml-auto mr-auto my-12 rounded-lg'>
 
-      <div className='flex flex-row p-4'>
-      <img src={recipe.image} className='h-48 w-fit rounded-3xl' alt="picture of food" />   
-        <div className='flex flex-col pl-4'>
-          <h1 className='font-playfair text-3xl'>{recipe.title}</h1> 
-          <p className='font-inter pt-1'>{recipe.desc}</p>
-        </div>
-      </div>
+<div class="bg-stone-800 rounded-lg shadow-md p-6 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
 
-      <div className='flex flex-row mx-10 mt-2 gap-20 pb-4'>
+{/* Title */}
+<h1 class="text-3xl font-bold mb-4">{recipe.title}</h1>
 
-        <div className='flex flex-col w-fit'>
-          <h1 className='font-playfair text-2xl'>Ingredients</h1>
-            {ingredient.map(function(value, index){
-            return <li key={index} className='font-inter'>{value}</li>
-            })}
-        </div>
+{/* Image */}
+<img src={recipe.image} alt="Recipe Image" class="w-full rounded-md mb-4"/>
 
-        <div className='flex flex-col'>
-          <h1 className='font-playfair text-2xl'>Method</h1>
-            {method.map(function(value, index){
-            return <li key={index} className='font-inter'>{value}</li>
-            })}
-        </div>
-      </div>
+{/* Ingredient and Method */}
+  <div class="flex flex-wrap">
+    <div class="w-full md:w-1/2">
+      <h2 class="text-xl font-semibold mb-2">Ingredients:</h2>
+      <ul class="list-disc ml-6 mb-4">
+      {ingredient.map(function(value, index){
+  return <li key={index} className='mt-3 font-inter'>{value}</li>
+  })}
+      </ul>
     </div>
+
+    <div class="w-full md:w-1/2">
+      <h2 class="text-xl font-semibold mb-2">Method:</h2>
+      <ol class="list-decimal ml-6 mb-4">
+      {method.map(function(value, index){
+  return <li key={index} className='mt-3 font-inter'>{value}</li>
+  })}
+      </ol>
+    </div>
+  </div>
+
+{/* Credit */}
+  <div class="text-sm text-gray-500">
+    <p>Recipe by: Your Name</p>
+    <p>Source: <a href="source_url" class="text-blue-500">Source Title</a></p>
+  </div>
+</div>
 
   <Footer/>
 </div>
