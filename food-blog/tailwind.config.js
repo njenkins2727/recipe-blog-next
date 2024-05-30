@@ -27,6 +27,9 @@ module.exports = {
         playfair:["Playfair Display", "serif"],
         inter:["Inter", "sans-serif"],
       },
+      screens: {
+        'sm': '426px',
+      }
     },
   },
   plugins: [

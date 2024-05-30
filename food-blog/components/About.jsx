@@ -22,3 +22,6 @@ const About = () => {
 }
 
 export default About
+
+// TODO:
+// responsiveness

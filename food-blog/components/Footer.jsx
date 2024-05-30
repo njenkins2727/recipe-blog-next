@@ -30,3 +30,5 @@ const Footer = () => {
 }
 
 export default Footer
+// TODO:
+// responsiveness potentially. do this one last. 
