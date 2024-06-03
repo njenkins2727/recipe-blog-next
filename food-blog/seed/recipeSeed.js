@@ -23,6 +23,8 @@ const recipeData = [
             'Add taco mix and water. Mix in well. Let simmer for about 10-15 min.',
             'Serve over the rice and add shredded lettuce, rinsed corn, diced tomato and guacamole. Enjoy!',
         ],
+        creator: 'Nathan',
+        source: '',
     },
     {
         title:`Lola's Pork Adobo`,
@@ -50,6 +52,8 @@ const recipeData = [
             'Add boiling water then simmer until you reach desired consistency',
             'Serve over rice and enjoy!'
         ],
+        creator: 'My Lola',
+        source: '',
     },
     {
         title: 'Lamb Saganaki',
@@ -78,6 +82,8 @@ const recipeData = [
             'Add white wine. Simmer, stirring, for 1 minute. Stir in diced tomatoes and stock. Add back your meatballs. Cover. Bring to the boil. Reduce heat to low. Simmer, covered, for 10 minutes',
             'Serve Meatballs over risoni. Optionally garnish with feta and parsely.'
         ],
+        creator: 'Cathie Lonnie',
+        source: 'https://www.taste.com.au/recipes/lamb-meatball-saganaki/94d2dd7a-f110-4cc8-8786-c5744f7c6d77',
     },
     {
         title: 'Vietnamese Pork Mince',
@@ -101,9 +107,11 @@ const recipeData = [
             'Add fish sauce, lemongrass and brown sugar. Mix to combine and avoid touching for 2 min to caramalise the mince. stir again and leave for a further 30 seconds.',
             'Add meat onto bed of rice, top with your sliced cucumber, spring onion and tomato. Enjoy!'
         ],
+        creator: 'Nathan',
+        source: '',
     },
     {
-        title: 'Teriyaki Salmon',
+        title: 'Asian glazed Salmon',
         desc: 'Indulge in the simplicity of this easy Asian glazed salmon. Marinate ahead of time for maximum flavor infusion, then enjoy the effortless cooking process that yields a dish bursting with savory-sweet goodness. With its straightforward steps and impressive taste, this recipe will not disappoint. Perfect for busy days or when you crave a delicious yet simple meal.',
         image: 'https://theresalwayspizza.com/assets/media/242Teriyaki%20Salmon.jpg',
         ingredient: [
@@ -123,11 +131,13 @@ const recipeData = [
             'Pre heat the oven to 180º degrees. Cook salmon in oven for 7 min, check on salmon and see if you need to oil it. Cook for a further 3 min ',
             'Add salmon onto bed of rice, add your toppings sliced spring onion and sesame seeds. Enjoy!'
         ],
+        creator: 'Nagi',
+        source: 'https://www.recipetineats.com/asian-glazed-salmon/',
     },
     {
         title: 'Italian Rice Pilaf',
         desc: 'Experience the best of both worlds with this Italian beef rice pilaf—a delightful fusion of creamy risotto and rich Bolognese flavors. Tender beef, aromatic herbs, and savory tomato sauce come together harmoniously with perfectly cooked rice, creating a dish that embodies comfort and satisfaction. It is everything you love about risotto and Bolognese in one flavorful bite, making it a surefire hit for any meal.',
-        image: 'https://lh4.googleusercontent.com/0e5wzOz0ZQykkgtgWEh-9oolJRGmeDfjn_JXzTMg_FgHNaqr5_gFk1rf5GuNGEJMqz7rPqQi_A0KtmhFzBWuzJavrusYzrKkFnqB_clb6WOPJo38gxt3_eS0fLLpkI8KuZcNK9yR',
+        image: 'https://everydayfamilyeats.com/wp-content/uploads/2024/03/Beef-Rice-Skillet-11.jpg',
         ingredient: [
             '500g Beef mince',
             '1  1/2 cups Rice',
@@ -150,6 +160,8 @@ const recipeData = [
             'Cook for 22 minutes or until rice is tender. remove from heat and rest keeping covered for 5 minutes - the rice will soften further.',
             'Serve with optinal toppings and Enjoy!',
         ],
+        creator: 'Nagi',
+        source: 'https://www.recipetineats.com/italian-beef-rice-pilaf/',
     },
     {
         title: 'Chicken chickpea salad ',
@@ -177,6 +189,8 @@ const recipeData = [
             'In a big bowl, whisk together olive oil, red wine vinegar, lemon juice, mustard, salt, garlic, red pepper flakes',
             'Toss remaining ingredients in bowl. Mix well. Taste and balance salt and pepper. Enjoy!',
         ],
+        creator: 'Violet Witchel',
+        source: 'https://www.instagram.com/reel/C6Z17VFP6vt/?igsh=NGJyMXR3czBxOHRx',
     },
 ];
 export default recipeData;

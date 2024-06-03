@@ -21,12 +21,20 @@ const [method, setMethod] = useState([]);
       }
       fetchRecipes();
     },[])
+
+const checkLink = (source) => {
+  if(source == ''){
+    return 'Original'
+  }else {
+    return source
+  }
+}
     
   return ( //Need to add a saved button, add creator and source in db, fix mobile Sm view, (center items / change nav to hamburger button?). could add time (prep and cook), could add gf rating, change list decorations numbers and dot points. 
 <div>
   <Nav/>
 
-<div class="bg-stone-800 rounded-lg shadow-md p-6 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
+<div class="bg-stone-800 rounded-lg shadow-md p-6 mt-12 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
 
 {/* Title */}
 <h1 class="text-3xl font-bold mb-4">{recipe.title}</h1>
@@ -60,8 +68,8 @@ const [method, setMethod] = useState([]);
 
 {/* Credit */}
   <div class="text-sm text-gray-500">
-    <p>Recipe by: Your Name</p>
-    <p>Source: <a href="source_url" class="text-blue-500">Source Title</a></p>
+    <p>Recipe by: {recipe.creator}</p>
+    <p>Source: <a href={recipe.source} class="text-blue-500">{checkLink(recipe.source)}</a></p>
   </div>
 </div>
 

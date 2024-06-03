@@ -15,6 +15,12 @@ const RecipeSchema = new Schema({
     method:{
         type: [String],
     },
+    creator:{
+        type:[String],
+    },
+    source:{
+        type: [String],
+    }
 });
 const Recipe = models.Recipe || model('Recipe', RecipeSchema);
 
