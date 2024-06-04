@@ -96,3 +96,6 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+// Next Auth useSession does not get session at first render

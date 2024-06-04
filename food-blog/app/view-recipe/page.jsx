@@ -1,81 +1,114 @@
-'use client'
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+'use client';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
 
 const ViewRecipe = () => {
-const searchParams = useSearchParams();
-let searchId = searchParams.get('id');
-const [recipe, setRecipe] = useState([]);
-const [ingredient, setIngredient] = useState([]);
-const [method, setMethod] = useState([]);
+  const searchParams = useSearchParams();
+  let searchId = searchParams.get('id');
+  const [recipe, setRecipe] = useState([]);
+  const [ingredient, setIngredient] = useState([]);
+  const [method, setMethod] = useState([]);
+  const [checkedIngredients, setCheckedIngredients] = useState([]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
-        const response = await fetch(`/api/recipes/${searchId}`) 
-        const data = await response.json();
-        setRecipe(data);
-        setIngredient(data.ingredient);
-        setMethod(data.method); //created another useState and used the map method to iterate over these arrays 
+      const response = await fetch(`/api/recipes/${searchId}`);
+      const data = await response.json();
+      setRecipe(data);
+      setIngredient(data.ingredient);
+      setMethod(data.method);
+    };
+    fetchRecipes();
+  }, []);
+
+  const checkLink = (source) => {
+    return source === '' ? 'Original' : source;
+  };
+
+  const handleCheckboxChange = (index) => {
+    setCheckedIngredients((prevCheckedIngredients) => {
+      const newCheckedIngredients = [...prevCheckedIngredients];
+      if (newCheckedIngredients.includes(index)) {
+        newCheckedIngredients.splice(newCheckedIngredients.indexOf(index), 1);
+      } else {
+        newCheckedIngredients.push(index);
       }
-      fetchRecipes();
-    },[])
+      return newCheckedIngredients;
+    });
+  };
 
-const checkLink = (source) => {
-  if(source == ''){
-    return 'Original'
-  }else {
-    return source
-  }
-}
-    
-  return ( //Need to add a saved button, add creator and source in db, fix mobile Sm view, (center items / change nav to hamburger button?). could add time (prep and cook), could add gf rating, change list decorations numbers and dot points. 
-<div>
-  <Nav/>
+  const handleSelectAll = () => {
+    if (checkedIngredients.length === ingredient.length) {
+      setCheckedIngredients([]);
+    } else {
+      setCheckedIngredients(ingredient.map((_, index) => index));
+    }
+  };
 
-<div class="bg-stone-800 rounded-lg shadow-md p-6 mt-12 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
+  return (
+    <div>
+      <Nav />
+      <div className="bg-stone-800 rounded-lg shadow-md p-6 mt-12 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
+        {/* Title */}
+        <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
 
-{/* Title */}
-<h1 class="text-3xl font-bold mb-4">{recipe.title}</h1>
+        {/* Description */}
+        <p className="mb-4 font-inter">{recipe.desc}</p>
 
-{/* Description */}
-<p class="mb-4 font-inter">{recipe.desc}</p>
+        {/* Image */}
+        <img src={recipe.image} alt="Recipe Image" className="w-full rounded-md mb-4" />
 
-{/* Image */}
-<img src={recipe.image} alt="Recipe Image" class="w-full rounded-md mb-4"/>
+        {/* Ingredient and Method */}
+        <div className="flex flex-wrap">
+          <div className="w-full md:w-1/2">
+            <h2 className="text-xl font-semibold mb-2">Ingredients:</h2>
+            <ul className="list-none ml-6 mb-4">
+              {ingredient.map((value, index) => (
+                <li key={index} className={`mt-3 font-inter flex items-center ${checkedIngredients.includes(index) ? 'line-through' : ''}`}>
+                  <input
+                    type="checkbox"
+                    className="mr-2"
+                    checked={checkedIngredients.includes(index)}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                  {value}
+                </li>
+              ))}
+            <button
+              className="btn-primary btn px-4 py-2 mt-2 rounded"
+              onClick={handleSelectAll}
+            >
+              Select All
+            </button>
+            </ul>
+          </div>
 
-{/* Ingredient and Method */}
-  <div class="flex flex-wrap">
-    <div class="w-full md:w-1/2">
-      <h2 class="text-xl font-semibold mb-2">Ingredients:</h2>
-      <ul class="list-disc ml-6 mb-4">
-      {ingredient.map(function(value, index){
-  return <li key={index} className='mt-3 font-inter'>{value}</li>
-  })}
-      </ul>
+          <div className="w-full md:w-1/2">
+            <h2 className="text-xl font-semibold mb-2">Method:</h2>
+            <ol className="list-decimal ml-6 mb-4">
+              {method.map((value, index) => (
+                <li key={index} className="mt-3 font-inter">
+                  {value}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        {/* Credit */}
+        <div className="text-sm text-gray-500">
+          <p>Recipe by: {recipe.creator}</p>
+          <p>
+            Source: <a href={recipe.source} className="text-blue-500">{checkLink(recipe.source)}</a>
+          </p>
+        </div>
+      </div>
+
+      <Footer />
     </div>
+  );
+};
 
-    <div class="w-full md:w-1/2">
-      <h2 class="text-xl font-semibold mb-2">Method:</h2>
-      <ol class="list-decimal ml-6 mb-4">
-      {method.map(function(value, index){
-  return <li key={index} className='mt-3 font-inter'>{value}</li>
-  })}
-      </ol>
-    </div>
-  </div>
-
-{/* Credit */}
-  <div class="text-sm text-gray-500">
-    <p>Recipe by: {recipe.creator}</p>
-    <p>Source: <a href={recipe.source} class="text-blue-500">{checkLink(recipe.source)}</a></p>
-  </div>
-</div>
-
-  <Footer/>
-</div>
-  )
-}
-
-export default ViewRecipe
+export default ViewRecipe;
