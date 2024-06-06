@@ -1,11 +1,11 @@
-'use client'
+'use client';
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, settoggleDropdown] = useState(false);
 
@@ -16,6 +16,11 @@ const Nav = () => {
     };
     setUpProviders();
   }, []);
+
+  if (status === 'loading') {
+    // Show a loading state while the session is being fetched
+    return <nav className="w-full fixed top-0 left-0 bg-base-100 z-50"><div className="flex justify-end items-center px-4 py-2">Loading...</div></nav>;
+  }
 
   return (
     <nav className="w-full fixed top-0 left-0 bg-base-100 z-50">
@@ -32,7 +37,7 @@ const Nav = () => {
               <button
                 type="button"
                 key={provider.name}
-                onClick={() => signOut(provider.id)}
+                onClick={() => signOut({ callbackUrl: '/' })}
                 className="text-xl font-inter"
               >
                 Logout
@@ -79,7 +84,7 @@ const Nav = () => {
                     <button
                       type="button"
                       key={provider.name}
-                      onClick={() => { signOut(provider.id); settoggleDropdown(false); }}
+                      onClick={() => { signOut({ callbackUrl: '/' }); settoggleDropdown(false); }}
                       className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Logout
@@ -96,6 +101,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-
-// Next Auth useSession does not get session at first render

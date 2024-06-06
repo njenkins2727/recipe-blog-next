@@ -37,7 +37,7 @@ const Saved = () => {
 
   const RecipeCardList = ({ data }) => {
     return (
-      <div className='flex flex-row flex-wrap'>
+      <div className='flex flex-row flex-wrap justify-center'>
         {data.map(recipe => (
           <RecipeCard
             key={recipe._id}
@@ -51,8 +51,8 @@ const Saved = () => {
   return (
     <div>
       <Nav />
-      <h1 className='justify-center flex font-playfair text-3xl bold'>Saved Recipes</h1>
-      <RecipeCardList data={recipe} />
+      <h1 className='justify-center flex font-playfair text-3xl bold mt-12'>Saved Recipes</h1>
+      <RecipeCardList data={recipe}/>
       <Footer/>
     </div>
   );
