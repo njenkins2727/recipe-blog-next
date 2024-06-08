@@ -91,7 +91,12 @@ export default Feed;
   // Text on top saying 'Please Login to view the recipes...'
   //Have 'Login' text be clickable to login 
 
-//Shaddow 
-// <div className='absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center z-10'>
-{/* <p className='text-white text-2xl'>Please Login to view recipes</p>
-</div> */}
+//Change save button to be more bright as its on dark card. (yellow star??)
+//Change photos to real pictures of my cooking 
+//Change fonts  
+//Add more recipes
+//Add time to cook recipe 
+//Add date added or gf rating 
+//Make saved/login/logout look clickable with hover 
+//Add a hover/focus affect for mobile nav bar
+//When you click away from mobile nav bar is dissapears 
