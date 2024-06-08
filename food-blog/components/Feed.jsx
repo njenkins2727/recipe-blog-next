@@ -1,40 +1,97 @@
 'use client'
 import { useState, useEffect } from 'react'
 import RecipeCard from '@components/RecipeCard'
+import { signIn, useSession, getProviders } from 'next-auth/react';
+
 
 const RecipeCardList = ({ data }) => {
-    return (
-      <div className='flex flex-row justify-center flex-wrap'>
-        {data.map((recipe => (
-          <RecipeCard
-          key={recipe._id}
-          data={recipe}
-          />
-        )))}
-      </div>
-    )
-  }
-
-const Feed = () => {
-    const [recipe, setRecipe] =useState([])
-
-    useEffect(() => {
-        const fetchRecipes = async () => {
-          const response = await fetch('/api/recipes');
-          const data = await response.json();
-            
-          setRecipe(data);
-      }
-      fetchRecipes();
-      }, []);
-
   return (
-    <div>
-        <RecipeCardList
-        data={recipe}
-        />
+    <div className='flex flex-row justify-center flex-wrap'>
+      {data.map((recipe) => (
+          <RecipeCard
+            key={recipe._id}
+            data={recipe}
+          />
+      ))}
     </div>
   )
 }
 
-export default Feed
+const Feed = () => {
+  const { data: session, status } = useSession();
+  const [recipes, setRecipes] = useState([]);
+  const [providers, setProviders] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      const response = await fetch('/api/recipes');
+      const data = await response.json();      
+      setRecipes(data);
+      setLoading(false);
+    }
+
+    const setUpProviders = async () => {
+      const response = await getProviders();
+      setProviders(response);
+    };
+
+    setUpProviders();
+    fetchRecipes();
+  }, []);
+  
+
+
+  if (status === 'loading' || loading) {
+    return <div>Loading...</div>;
+  }
+
+  if(!session){
+    const login = providers && Object.values(providers).map((provider) => (
+      <button
+        type="button"
+        key={provider.name}
+        onClick={() => signIn(provider.id)}
+        className="text-blue-500 underline"
+      >
+        Login
+      </button>
+    ))
+    return (
+      <div className='relative'>
+      {!session?.user && (
+        <div className='text-center my-4'>
+          <p>Please {login} to view the recipes... </p>
+        </div>
+      )}
+    </div>
+    )
+  }
+
+  return (
+    <div className='relative'>
+      <RecipeCardList
+        data={recipes}
+      />
+    </div>
+  )
+}
+
+export default Feed;
+
+// Desktop View: 
+  // first 3 recipes display 
+  // opacity goes from 60 to 95 from left to right respectivley 
+  // Text on top saying 'Please Login to view the recipes...'
+  //Have 'Login' text be clickable to login 
+
+// Mobile view:
+  // display 1 recipe 
+  // opacity from 60 to 95 from top to bottom respectivly
+  // Text on top saying 'Please Login to view the recipes...'
+  //Have 'Login' text be clickable to login 
+
+//Shaddow 
+// <div className='absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center z-10'>
+{/* <p className='text-white text-2xl'>Please Login to view recipes</p>
+</div> */}
