@@ -100,3 +100,7 @@ export default Feed;
 //Make saved/login/logout look clickable with hover 
 //Add a hover/focus affect for mobile nav bar
 //When you click away from mobile nav bar is dissapears 
+//Change checkbox size and look
+//Add a loading state for the page saved-recipe
+//add a loading state for view recipe. Skeleton??
+//Source isnt working 
