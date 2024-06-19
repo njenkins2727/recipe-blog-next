@@ -1,16 +1,27 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
+import ViewRecipeSkeleton from '../../components/ViewRecipeSkeleton';
 
 const ViewRecipe = () => {
   const searchParams = useSearchParams();
+  const { data: status } = useSession();
   let searchId = searchParams.get('id');
   const [recipe, setRecipe] = useState([]);
   const [ingredient, setIngredient] = useState([]);
   const [method, setMethod] = useState([]);
   const [checkedIngredients, setCheckedIngredients] = useState([]);
+  const [loading, setloading] = useState(true);
+
+  useEffect(() => { // testing loading state
+    setTimeout(() => {
+      setloading(false);
+    }, [1000])
+    
+  })
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -24,7 +35,7 @@ const ViewRecipe = () => {
   }, []);
 
   const checkLink = (source) => {
-    return source === '' ? 'Original' : source;
+    return source == '' ? 'Original' : source;
   };
 
   const handleCheckboxChange = (index) => {
@@ -46,6 +57,10 @@ const ViewRecipe = () => {
       setCheckedIngredients(ingredient.map((_, index) => index));
     }
   };
+
+  if(loading == true){
+    return <ViewRecipeSkeleton/>
+  }
 
   return (
     <div>
@@ -69,7 +84,7 @@ const ViewRecipe = () => {
                 <li key={index} className={`mt-3 font-inter flex items-center ${checkedIngredients.includes(index) ? 'line-through' : ''}`}>
                   <input
                     type="checkbox"
-                    className="mr-2"
+                    className="mr-2 size-4 accent-primary"
                     checked={checkedIngredients.includes(index)}
                     onChange={() => handleCheckboxChange(index)}
                   />
@@ -77,7 +92,7 @@ const ViewRecipe = () => {
                 </li>
               ))}
             <button
-              className="btn-primary btn px-4 py-2 mt-2 rounded"
+              className="btn-primary btn px-4 py-2 mt-4 rounded"
               onClick={handleSelectAll}
             >
               Select All
@@ -105,7 +120,6 @@ const ViewRecipe = () => {
           </p>
         </div>
       </div>
-
       <Footer />
     </div>
   );

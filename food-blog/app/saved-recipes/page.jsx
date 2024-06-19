@@ -4,11 +4,13 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import { useSession } from 'next-auth/react';
 import RecipeCard from '../../components/RecipeCard';
+import CardSkeleton from '../../components/CardSkeleton';
 
 const Saved = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const userId = session?.user.id;
   const [recipe, setRecipe] = useState([]);
+  const [loading, setloading] = useState(true);
 
   const loadSavedData = useCallback(async () => {
     try {
@@ -28,6 +30,12 @@ const Saved = () => {
       console.log('Error on load', error);
     }
   }, [userId]);
+
+  useEffect(() => { // testing loading state
+    setTimeout(()=> {
+    setloading(false);
+    },[2000])
+  })
   
   useEffect(() => {
     if (userId) {
@@ -47,6 +55,17 @@ const Saved = () => {
       </div>
     );
   };
+
+  if(loading == true){
+    return(
+      <div className='flex flex-wrap justify-center'>
+        <CardSkeleton/>
+        <CardSkeleton/>
+        <CardSkeleton/>
+      </div>
+    )
+  }
+  
 
   return (
     <div>
