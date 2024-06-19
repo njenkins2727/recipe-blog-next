@@ -25,7 +25,7 @@ const Nav = () => {
   return (
     <nav className="w-full fixed top-0 left-0 bg-base-100 z-50">
       <div className="flex justify-between items-center px-4 py-2">
-        <a href="/" className="text-xl font-inter">OneBusyWeek</a>
+        <a href="/" className="text-xl font-inter">FoodbyNathan</a>
         
         {/* Bigger screen */}
         {session?.user ? (
