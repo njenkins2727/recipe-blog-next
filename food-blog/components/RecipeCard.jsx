@@ -62,9 +62,9 @@ const ViewRecipe = async () => {
 }
 
   return (    
-      <div className="card card-compact w-96 bg-stone-800 shadow-xl mx-6 my-4">
+      <div className="card card-compact w-96 bg-secondary shadow-xl mx-6 my-4">
         <figure><img src={data.image} className="w-screen h-60 object-cover" alt="picture of food" /></figure>
-        <div className="card-body">
+        <div className="card-body text-light">
           <h2 className="card-title">{data.title}</h2>
           <p className='line-clamp-3'>{data.desc}</p>
             <div className="card-actions justify-end">
@@ -75,7 +75,7 @@ const ViewRecipe = async () => {
             <path d="M 12.8125 2 C 12.335938 2.089844 11.992188 2.511719 12 3 L 12 47 C 11.996094 47.359375 12.1875 47.691406 12.496094 47.871094 C 12.804688 48.054688 13.1875 48.054688 13.5 47.875 L 25 41.15625 L 36.5 47.875 C 36.8125 48.054688 37.195313 48.054688 37.503906 47.871094 C 37.8125 47.691406 38.003906 47.359375 38 47 L 38 3 C 38 2.449219 37.550781 2 37 2 L 13 2 C 12.96875 2 12.9375 2 12.90625 2 C 12.875 2 12.84375 2 12.8125 2 Z M 14 4 L 36 4 L 36 45.25 L 25.5 39.125 C 25.191406 38.945313 24.808594 38.945313 24.5 39.125 L 14 45.25 Z"></path>
             }
             </svg></button>
-            <button onClick={ViewRecipe} className="btn btn-primary">View Recipe</button>
+            <button onClick={ViewRecipe} className="btn bg-primary text-light">View Recipe</button>
             </div>
         </div>
       </div>

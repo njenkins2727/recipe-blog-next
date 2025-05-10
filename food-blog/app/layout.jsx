@@ -8,7 +8,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
     return (
-      <html lang='en'>
+      <html lang='en' className='bg-dark'>
           <body>
             <Provider>
               {children}

@@ -75,7 +75,7 @@ const Nav = () => {
                 <div className="absolute top-12 right-0 w-40 bg-secondary shadow-lg">
                   <Link
                     href="/saved-recipes"
-                    className="nav-dropdown border-b-2 border-base-100"
+                    className="nav-dropdown border-b-2 border-dark"
                     onClick={() => settoggleDropdown(false)}
                   >
                     Saved

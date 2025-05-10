@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* NAVBAR */
 .nav{
     @apply w-full absolute p-9
 }

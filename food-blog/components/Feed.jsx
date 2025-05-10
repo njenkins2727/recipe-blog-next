@@ -73,6 +73,9 @@ const Feed = () => {
       <RecipeCardList
         data={recipes}
       />
+      <div className='w-full flex justify-center my-10'>
+      <button className='btn bg-primary text-light'>See more recipes</button>
+      </div>
     </div>
   )
 }

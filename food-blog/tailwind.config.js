@@ -1,16 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-        "primary": "#eb5e28",
-        "secondary": "#403d39",
-        "base-100": "#252422" 
-        },
-      },
-    ],
-  },
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "primary": "#eb5e28",
+        "secondary": "#403d39",
+        "dark": "#252422",
+        "light": "#fffcf2",
+        },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

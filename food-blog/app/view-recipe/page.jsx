@@ -65,7 +65,7 @@ const ViewRecipe = () => {
   return (
     <div>
       <Nav />
-      <div className="bg-stone-800 rounded-lg shadow-md p-6 mt-12 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
+      <div className="bg-secondary text-light rounded-lg shadow-md p-6 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
         {/* Title */}
         <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
 
@@ -92,7 +92,7 @@ const ViewRecipe = () => {
                 </li>
               ))}
             <button
-              className="btn-primary btn px-4 py-2 mt-4 rounded"
+              className="btn bg-primary text-light px-4 py-2 mt-4 rounded"
               onClick={handleSelectAll}
             >
               Select All
@@ -126,3 +126,5 @@ const ViewRecipe = () => {
 };
 
 export default ViewRecipe;
+
+
