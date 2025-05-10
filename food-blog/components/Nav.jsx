@@ -19,18 +19,18 @@ const Nav = () => {
 
   if (status === 'loading') {
     // Show a loading state while the session is being fetched
-    return <nav className="w-full fixed top-0 left-0 bg-base-100 z-50"><div className="flex justify-end items-center px-4 py-2">Loading...</div></nav>;
+    return <nav className="nav">Loading...</nav>;
   }
 
   return (
-    <nav className="w-full fixed top-0 left-0 bg-base-100 z-50">
-      <div className="flex justify-between items-center px-4 py-2">
-        <a href="/" className="text-xl font-inter">FoodbyNathan</a>
+    <nav className="nav">
+      <div className="flex justify-between">
+        <a href="/" className="nav-items">FoodbyNathan</a>
         
         {/* Bigger screen */}
         {session?.user ? (
           <div className="hidden sm:flex space-x-4">
-            <Link href='/saved-recipes' className="text-xl font-inter">
+            <Link href='/saved-recipes' className="nav-items">
               Saved
             </Link>
             {providers && Object.values(providers).map((provider) => (
@@ -38,27 +38,27 @@ const Nav = () => {
                 type="button"
                 key={provider.name}
                 onClick={() => signOut({ callbackUrl: '/' })}
-                className="text-xl font-inter"
+                className="nav-items"
               >
                 Logout
               </button>
             ))}
           </div>
-        ) : (
+          ) : (
           <>
             {providers && Object.values(providers).map((provider) => (
               <button
                 type="button"
                 key={provider.name}
                 onClick={() => signIn(provider.id)}
-                className="text-xl font-inter ml-auto"
+                className="nav-items"
               >
                 Login
               </button>
             ))}
           </>
         )}
-        
+
         {/* Smaller screen */}
         <div className="sm:hidden flex relative">
           {session?.user ? (
@@ -72,10 +72,10 @@ const Nav = () => {
                 onClick={() => settoggleDropdown((prev) => !prev)}
               />
               {toggleDropdown && (
-                <div className="absolute top-12 right-0 w-40 bg-white shadow-lg z-50">
+                <div className="absolute top-12 right-0 w-40 bg-secondary shadow-lg">
                   <Link
                     href="/saved-recipes"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b-2"
+                    className="nav-dropdown border-b-2 border-base-100"
                     onClick={() => settoggleDropdown(false)}
                   >
                     Saved
@@ -85,7 +85,7 @@ const Nav = () => {
                       type="button"
                       key={provider.name}
                       onClick={() => { signOut({ callbackUrl: '/' }); settoggleDropdown(false); }}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="nav-dropdown w-40 text-left"
                     >
                       Logout
                     </button>

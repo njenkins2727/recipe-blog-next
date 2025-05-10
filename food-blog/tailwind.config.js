@@ -4,9 +4,9 @@ module.exports = {
     themes: [
       {
         mytheme: {
-        "primary": "#d66853",
-        "secondary": "#F3DFC1",
-        "base-100": "#43413F"
+        "primary": "#eb5e28",
+        "secondary": "#403d39",
+        "base-100": "#252422" 
         },
       },
     ],
@@ -25,7 +25,7 @@ module.exports = {
       },
       fontFamily: {
         playfair:["Playfair Display", "serif"],
-        inter:["Inter", "sans-serif"],
+        raleway:["Raleway", "sans-serif"]
       },
       screens: {
         'sm': '426px',
