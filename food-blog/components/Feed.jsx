@@ -70,6 +70,7 @@ const Feed = () => {
 
   return (
     <div className='relative'>
+      <h1 className='page-heading'>Pinned Recipes</h1>
       <RecipeCardList
         data={recipes}
       />

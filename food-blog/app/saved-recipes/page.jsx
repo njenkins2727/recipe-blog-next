@@ -58,10 +58,14 @@ const Saved = () => {
 
   if(loading == true){
     return(
+      <div>
+      <Nav/>
+      <h1 className='page-heading'>Saved Recipes</h1>
       <div className='flex flex-wrap justify-center'>
         <CardSkeleton/>
         <CardSkeleton/>
         <CardSkeleton/>
+      </div>
       </div>
     )
   }
@@ -70,7 +74,7 @@ const Saved = () => {
   return (
     <div>
       <Nav />
-      <h1 className='justify-center flex font-playfair text-3xl bold mt-12'>Saved Recipes</h1>
+      <h1 className='page-heading'>Saved Recipes</h1>
       <RecipeCardList data={recipe}/>
       <Footer/>
     </div>

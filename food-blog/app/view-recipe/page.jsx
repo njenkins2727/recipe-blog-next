@@ -64,13 +64,13 @@ const ViewRecipe = () => {
 
   return (
     <div>
-      <Nav />
-      <div className="bg-secondary text-light rounded-lg shadow-md p-6 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
+      <Nav/>
+      <div className="bg-secondary text-light rounded-lg shadow-md p-6 mt-28 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
         {/* Title */}
-        <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
+        <h1 className="text-3xl font-raleway font-bold mb-4">{recipe.title}</h1>
 
         {/* Description */}
-        <p className="mb-4 font-inter">{recipe.desc}</p>
+        <p className="mb-4 font-raleway">{recipe.desc}</p>
 
         {/* Image */}
         <img src={recipe.image} alt="Recipe Image" className="w-full rounded-md mb-4" />
@@ -78,10 +78,10 @@ const ViewRecipe = () => {
         {/* Ingredient and Method */}
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
-            <h2 className="text-xl font-semibold mb-2">Ingredients:</h2>
+            <h2 className="text-xl font-semibold font-raleway mb-2">Ingredients:</h2>
             <ul className="list-none ml-6 mb-4">
               {ingredient.map((value, index) => (
-                <li key={index} className={`mt-3 font-inter flex items-center ${checkedIngredients.includes(index) ? 'line-through' : ''}`}>
+                <li key={index} className={`mt-3 font-raleway flex items-center ${checkedIngredients.includes(index) ? 'line-through' : ''}`}>
                   <input
                     type="checkbox"
                     className="mr-2 size-4 accent-primary"
@@ -92,7 +92,7 @@ const ViewRecipe = () => {
                 </li>
               ))}
             <button
-              className="btn bg-primary text-light px-4 py-2 mt-4 rounded"
+              className="btn bg-primary px-4 py-2 mt-4 rounded"
               onClick={handleSelectAll}
             >
               Select All
@@ -101,10 +101,10 @@ const ViewRecipe = () => {
           </div>
 
           <div className="w-full md:w-1/2">
-            <h2 className="text-xl font-semibold mb-2">Method:</h2>
+            <h2 className="text-xl font-semibold font-raleway mb-2">Method:</h2>
             <ol className="list-decimal ml-6 mb-4">
               {method.map((value, index) => (
-                <li key={index} className="mt-3 font-inter">
+                <li key={index} className="mt-3 font-raleway">
                   {value}
                 </li>
               ))}

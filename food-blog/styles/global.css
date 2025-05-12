@@ -7,11 +7,15 @@
 
 /* NAVBAR */
 .nav{
-    @apply w-full absolute p-9
+    @apply w-full p-9 absolute top-0 
 }
 .nav-items{
     @apply text-3xl font-bold font-raleway text-primary 
 }
 .nav-dropdown{
     @apply block p-3 text-primary hover:bg-primary hover:text-base-100 
+}
+
+.page-heading{
+    @apply justify-center flex font-playfair text-primary text-4xl font-bold mt-28 mb-4
 }
