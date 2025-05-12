@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
-import ViewRecipeSkeleton from '../../components/ViewRecipeSkeleton';
+import ViewRecipeSkeleton from '../../components/skeletons/ViewRecipeSkeleton';
 
 const ViewRecipe = () => {
   const searchParams = useSearchParams();
@@ -59,7 +59,12 @@ const ViewRecipe = () => {
   };
 
   if(loading == true){
-    return <ViewRecipeSkeleton/>
+    return (
+      <div>
+        <Nav/>
+        <ViewRecipeSkeleton/>
+      </div>
+    )
   }
 
   return (

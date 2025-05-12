@@ -10,7 +10,7 @@
     @apply w-full p-9 absolute top-0 
 }
 .nav-items{
-    @apply text-3xl font-bold font-raleway text-primary 
+    @apply text-3xl font-bold font-raleway text-primary hover:text-light
 }
 .nav-dropdown{
     @apply block p-3 text-primary hover:bg-primary hover:text-base-100 

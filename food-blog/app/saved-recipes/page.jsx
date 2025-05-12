@@ -4,7 +4,7 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import { useSession } from 'next-auth/react';
 import RecipeCard from '../../components/RecipeCard';
-import CardSkeleton from '../../components/CardSkeleton';
+import CardSkeleton from '../../components/skeletons/RecipeCardSkeleton';
 
 const Saved = () => {
   const { data: session, status } = useSession();
