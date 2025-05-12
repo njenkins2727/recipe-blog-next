@@ -81,15 +81,15 @@ const ViewRecipe = () => {
         <img src={recipe.image} alt="Recipe Image" className="w-full rounded-md mb-4" />
 
         {/* Ingredient and Method */}
-        <div className="flex flex-wrap">
-          <div className="w-full md:w-1/2">
-            <h2 className="text-xl font-semibold font-raleway mb-2">Ingredients:</h2>
-            <ul className="list-none ml-6 mb-4">
+        <div className="flex flex-wrap px-2">
+          <div className="intruction">
+            <h2 className="subheading">Ingredients:</h2>
+            <ul className="list-none ml-2">
               {ingredient.map((value, index) => (
                 <li key={index} className={`mt-3 font-raleway flex items-center ${checkedIngredients.includes(index) ? 'line-through' : ''}`}>
                   <input
                     type="checkbox"
-                    className="mr-2 size-4 accent-primary"
+                    className="mr-2 size-4 accent-primary hover:cursor-pointer"
                     checked={checkedIngredients.includes(index)}
                     onChange={() => handleCheckboxChange(index)}
                   />
@@ -97,7 +97,7 @@ const ViewRecipe = () => {
                 </li>
               ))}
             <button
-              className="btn bg-primary px-4 py-2 mt-4 rounded"
+              className="btn bg-primary my-4 text-light rounded hover:cursor-pointer"
               onClick={handleSelectAll}
             >
               Select All
@@ -105,9 +105,9 @@ const ViewRecipe = () => {
             </ul>
           </div>
 
-          <div className="w-full md:w-1/2">
-            <h2 className="text-xl font-semibold font-raleway mb-2">Method:</h2>
-            <ol className="list-decimal ml-6 mb-4">
+          <div className="intruction">
+            <h2 className="subheading">Method:</h2>
+            <ol className="list-decimal ml-6">
               {method.map((value, index) => (
                 <li key={index} className="mt-3 font-raleway">
                   {value}
