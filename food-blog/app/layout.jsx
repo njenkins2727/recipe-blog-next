@@ -9,11 +9,11 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
       <html lang='en' className='bg-dark'>
-          <body>
-            <Provider>
-              {children}
-            </Provider>
-          </body>
+        <body>
+          <Provider>
+            {children}
+          </Provider>
+        </body>
       </html>
     )
   }

@@ -70,7 +70,7 @@ const ViewRecipe = () => {
   return (
     <div>
       <Nav/>
-      <div className="bg-secondary text-light rounded-lg shadow-md p-6 mt-28 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl mb-10">
+      <div className="bg-secondary text-light rounded-lg shadow-md p-6 mt-28 max-w-md mx-auto md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mb-10">
         {/* Title */}
         <h1 className="text-3xl font-raleway font-bold mb-4">{recipe.title}</h1>
 

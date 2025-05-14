@@ -23,7 +23,9 @@ module.exports = {
         raleway:["Raleway", "sans-serif"]
       },
       screens: {
-        'sm': '426px',
+        'xxsm': '331px',
+        'xsm': '515px',
+        'xmd': '399px',
       }
     },
   },

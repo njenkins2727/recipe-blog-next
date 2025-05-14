@@ -18,7 +18,7 @@ html {
 
 /* NAVBAR */
 .nav{
-    @apply w-full p-9 absolute top-0 
+    @apply w-full pt-9 px-4 absolute top-0 xsm:px-9
 }
 .nav-items{
     @apply text-3xl font-bold font-raleway text-primary hover:text-light
