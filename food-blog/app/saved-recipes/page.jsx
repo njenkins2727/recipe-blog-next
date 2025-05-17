@@ -3,8 +3,9 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import { useSession } from 'next-auth/react';
-import RecipeCard from '../../components/RecipeCard';
+import RecipeCardList from '../../components/recipes/RecipeCardList';
 import CardSkeleton from '../../components/skeletons/RecipeCardSkeleton';
+
 
 const Saved = () => {
   const { data: session, status } = useSession();
@@ -14,6 +15,7 @@ const Saved = () => {
 
   const loadSavedData = useCallback(async () => {
     try {
+      setloading(true)
       const recipeIdArr = JSON.parse(localStorage.getItem(userId));
       if (!recipeIdArr) return;
 
@@ -25,36 +27,17 @@ const Saved = () => {
       const recipePromises = recipeIdArr.map(dataId => fetchRecipes(dataId));
       const recipes = await Promise.all(recipePromises);
       setRecipe(recipes);
-      
     } catch (error) {
       console.log('Error on load', error);
     }
   }, [userId]);
-
-  useEffect(() => { // testing loading state
-    setTimeout(()=> {
-    setloading(false);
-    },[2000])
-  })
   
   useEffect(() => {
     if (userId) {
       loadSavedData();
     }
+    return setloading(false);
   }, [loadSavedData, userId]);
-
-  const RecipeCardList = ({ data }) => {
-    return (
-      <div className='flex flex-row flex-wrap justify-center'>
-        {data.map(recipe => (
-          <RecipeCard
-            key={recipe._id}
-            data={recipe}
-          />
-        ))}
-      </div>
-    );
-  };
 
   if(loading == true){
     return(

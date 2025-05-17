@@ -1,13 +1,14 @@
 'use client'
 import { useState, useEffect } from 'react'
-import RecipeCard from '@components/RecipeCard'
+import RecipeCard from './RecipeCard';
 import { signIn, useSession, getProviders } from 'next-auth/react';
+import Link from "next/link";
 
 
 const RecipeCardList = ({ data }) => {
   return (
     <div className='flex flex-row justify-center flex-wrap'>
-      {data.map((recipe) => (
+      {data.slice(0, 6).map((recipe) => (
           <RecipeCard
             key={recipe._id}
             data={recipe}
@@ -75,7 +76,9 @@ const Feed = () => {
         data={recipes}
       />
       <div className='w-full flex justify-center my-10'>
-      <button className='btn bg-primary text-light'>See more recipes</button>
+      <Link href='/all-recipes' className="btn bg-primary text-light">
+      <button>See all recipes</button>
+      </Link>
       </div>
     </div>
   )

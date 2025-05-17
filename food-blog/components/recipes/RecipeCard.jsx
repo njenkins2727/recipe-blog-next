@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from "next-auth/react"
-import { jsx } from 'react/jsx-runtime';
 
 const RecipeCard = ({ data }) => {
   const router = useRouter()
