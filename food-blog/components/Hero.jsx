@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -8,7 +9,11 @@ const Hero = () => {
       <div className="hero-overlay bg-black bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content flex-col">
           <h1 className="mb-5 text-primary text-6xl font-playfair font-black sm:text-7xl">QUICK. EASY. TASTY.</h1>
-          <h2 className="mb-5 text-primary text-xl font-raleway font-bold">WHERE SIMPLICITY MEETS FLAVOUR</h2> {/* I want this font to be agrandir grand but it cost $$*/}
+          <h2 className="mb-2 text-primary text-xl font-raleway font-bold">WHERE SIMPLICITY MEETS FLAVOUR</h2> {/* I want this font to be agrandir grand but it cost $$*/}
+          <Link href='/all-recipes' className="btn bg-primary text-light">
+            <button>See All Recipes</button>
+          </Link>
+      
       </div>
     </div>
   );
