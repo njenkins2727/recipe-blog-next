@@ -27,6 +27,7 @@ const Saved = () => {
       const recipePromises = recipeIdArr.map(dataId => fetchRecipes(dataId));
       const recipes = await Promise.all(recipePromises);
       setRecipe(recipes);
+      setloading(false)
     } catch (error) {
       console.log('Error on load', error);
     }
@@ -36,7 +37,6 @@ const Saved = () => {
     if (userId) {
       loadSavedData();
     }
-    return setloading(false);
   }, [loadSavedData, userId]);
 
   if(loading == true){

@@ -61,7 +61,7 @@ const Feed = () => {
     return (
       <div className='relative'>
       {!session?.user && (
-        <div className='text-center my-4'>
+        <div className='text-center mb-8 font-raleway font-semibold mt-64 xmd:mt-52 lg:mt-32 xl:mt-16'>
           <p>Please {login} to view the recipes... </p>
         </div>
       )}
@@ -71,7 +71,7 @@ const Feed = () => {
 
   return (
     <div className='relative'>
-      <h1 className='justify-center flex font-playfair text-primary text-4xl font-bold mb-4'>Pinned Recipes</h1>
+      <h1 className='justify-center flex font-playfair text-primary text-4xl font-bold mb-4 mt-60 lg:mt-32'>Pinned Recipes</h1>
       <RecipeCardList
         data={recipes}
       />
