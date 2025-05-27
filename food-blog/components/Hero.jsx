@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className=" w-full h-screen min-h-screen bg-cover bg-center hero" style={{ 
+    <div className=" w-full h-screen min-h-screen bg-fixed bg-cover bg-center hero" style={{ 
       backgroundImage: 'url(https://images.unsplash.com/photo-1547573854-74d2a71d0826?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' 
     }}>
       <div className="hero-overlay bg-black bg-opacity-60"></div>
