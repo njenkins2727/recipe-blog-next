@@ -17,7 +17,11 @@ const Saved = () => {
     try {
       setloading(true)
       const recipeIdArr = JSON.parse(localStorage.getItem(userId));
-      if (!recipeIdArr) return;
+
+ if (!Array.isArray(recipeIdArr) || recipeIdArr.length === 0) {
+      setRecipe([]); // Set empty array to avoid stale state
+      return;
+    }
 
       const fetchRecipes = async (dataId) => {
         const response = await fetch(`/api/recipes/${dataId}`);
@@ -27,10 +31,12 @@ const Saved = () => {
       const recipePromises = recipeIdArr.map(dataId => fetchRecipes(dataId));
       const recipes = await Promise.all(recipePromises);
       setRecipe(recipes);
-      setloading(false)
     } catch (error) {
-      console.log('Error on load', error);
-    }
+      console.error('Error loading saved recipes:', error);
+      setRecipe([]); // Safe fallback
+    }finally {
+    setloading(false); // Always stop loading
+  }
   }, [userId]);
   
   useEffect(() => {
