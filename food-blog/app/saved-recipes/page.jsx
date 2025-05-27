@@ -18,10 +18,7 @@ const Saved = () => {
       setloading(true)
       const recipeIdArr = JSON.parse(localStorage.getItem(userId));
 
- if (!Array.isArray(recipeIdArr) || recipeIdArr.length === 0) {
-      setRecipe([]); // Set empty array to avoid stale state
-      return;
-    }
+      if (!recipeIdArr) return;
 
       const fetchRecipes = async (dataId) => {
         const response = await fetch(`/api/recipes/${dataId}`);
