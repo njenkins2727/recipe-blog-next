@@ -44,7 +44,11 @@ const Feed = () => {
 
 
   if (status === 'loading' || loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='text-center mb-8 font-raleway font-semibold mt-64 xmd:mt-52 lg:mt-32 xl:mt-16'>
+          <p>Please wait... </p>
+      </div>
+    )
   }
 
   if(!session){
@@ -62,7 +66,7 @@ const Feed = () => {
       <div className='relative'>
       {!session?.user && (
         <div className='text-center mb-8 font-raleway font-semibold mt-64 xmd:mt-52 lg:mt-32 xl:mt-16'>
-          <p>Please {login} to view the recipes... </p>
+          <p>Please {login} to view all recipes... </p>
         </div>
       )}
     </div>

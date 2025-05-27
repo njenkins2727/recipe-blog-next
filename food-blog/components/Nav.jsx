@@ -19,7 +19,12 @@ const Nav = () => {
 
   if (status === 'loading') {
     // Show a loading state while the session is being fetched
-    return <nav className="nav">Loading...</nav>;
+    return (  
+        <div className="card card-compact w-full bg-none shadow-xl px-10 mt-10 animate-pulse flex flex-row justify-between absolute ">
+          <div className="xsm:w-56 w-28 h-6 bg-primary flex justify-center rounded"></div>
+          <div className="-m-2 btn-circle bg-primary xsm:w-56 xsm:h-6 xsm:flex xsm:justify-center xsm:rounded xsm:m-0"></div>
+        </div>
+    )
   }
 
   return (
