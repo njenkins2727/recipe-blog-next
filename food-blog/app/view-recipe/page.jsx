@@ -81,7 +81,7 @@ const ViewRecipe = () => {
         <img src={recipe.image} alt="Recipe Image" className="w-full rounded-md mb-4" />
 
         {/* Ingredient and Method */}
-        <div className="flex flex-wrap px-2">
+        <div className="flex flex-wrap px-2 pt-4">
           <div className="intruction">
             <h2 className="subheading">Ingredients:</h2>
             <ul className="list-none ml-2">

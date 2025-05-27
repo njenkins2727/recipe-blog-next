@@ -16,7 +16,7 @@ const Saved = () => {
   const loadSavedData = useCallback(async () => {
     try {
       setloading(true)
-      const recipeIdArr = JSON.parse(localStorage.getItem(userId));
+      const recipeIdArr = await JSON.parse(localStorage.getItem(userId));
 
       if (!recipeIdArr) return;
 
@@ -56,7 +56,6 @@ const Saved = () => {
     )
   }
   
-
   return (
     <div>
       <Nav />

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import RecipeCardList from '../../components/recipes/RecipeCardList' 
 import Nav from '../../components/Nav'
+import Footer from '../../components/Footer'
 
 const Allrecipes = () => {
 
@@ -24,6 +25,7 @@ const Allrecipes = () => {
         <Nav/>
       <h1 className='page-heading'>All Recipes</h1>
       <RecipeCardList data={recipes}/>
+      <Footer/>
     </div>
   )
 }

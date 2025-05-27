@@ -61,7 +61,7 @@ const ViewRecipe = async () => {
 }
 
   return (    
-      <div className="card card-compact w-96 bg-secondary shadow-xl mx-6 my-4">
+      <div className="card card-compact w-96 bg-secondary shadow-xl mx-6 mt-8">
         <figure><img src={data.image} className="w-screen h-60 object-cover" alt="picture of food" /></figure>
         <div className="card-body text-light font-raleway">
           <h2 className="card-title">{data.title}</h2>
