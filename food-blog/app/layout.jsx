@@ -2,8 +2,8 @@ import '@styles/global.css'
 import Provider from '@components/Provider'
 
 export const metadata = {
-    title: "Onebusyweek",
-    description: '7 days, 7 Recipes'
+    title: "FoodbyNathan",
+    description: 'Food blog by Nathan Jenkins',
 }
 
 const RootLayout = ({ children }) => {
