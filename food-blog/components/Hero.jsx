@@ -2,9 +2,23 @@
 import React from 'react';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import ViewRecipeSkeleton from './skeletons/ViewRecipeSkeleton';
 
 const Hero = () => {
     const { data: session, status } = useSession();
+
+  if (status === 'loading') {
+    // Show a loading state while the session is being fetched
+    return (  
+  <div className="bg-secondary rounded-lg shadow-md p-6 mt-28 mb-96 max-w-md mx-auto md:max-w-lg lg:max-w-2xl xl:max-w-3xl animate-pulse">
+    <div className="skeleton-image"></div>
+    <div className='flex justify-center'>
+      <div className="skeleton-button"></div>
+    </div>
+  </div>
+        
+    )
+  }
 
   return (
     <div className=" w-full h-screen min-h-screen bg-fixed bg-cover bg-center hero" style={{ 
