@@ -11,11 +11,9 @@ const Saved = () => {
   const { data: session, status } = useSession();
   const userId = session?.user.id;
   const [recipe, setRecipe] = useState([]);
-  const [loading, setloading] = useState(true);
 
   const loadSavedData = useCallback(async () => {
     try {
-      setloading(true)
       const recipeIdArr = await JSON.parse(localStorage.getItem(userId));
 
       if (!recipeIdArr) return;
@@ -31,22 +29,22 @@ const Saved = () => {
     } catch (error) {
       console.error('Error loading saved recipes:', error);
       setRecipe([]); // Safe fallback
-    }finally {
-    setloading(false); // Always stop loading
-  }
+    }
   }, [userId]);
-  
+
   useEffect(() => {
     if (userId) {
       loadSavedData();
     }
   }, [loadSavedData, userId]);
 
-  if(loading == true){
+  if(status === 'loading'){
     return(
       <div>
-      <Nav/>
-      <h1 className='page-heading'>Saved Recipes</h1>
+        <div className="bg-secondary rounded-lg shadow-md p-6 mt-6 max-w-full mx-6 mb-10 animate-pulse flex flex-row justify-between">
+          <div className=" p-6 xsm:w-56 w-28 h-6 bg-light flex justify-center rounded"></div>
+          <div className=" p-6 btn-circle bg-light xsm:w-56 xsm:h-6 xsm:flex xsm:justify-center xsm:rounded xsm:m-0"></div>
+        </div>
       <div className='flex flex-wrap justify-center'>
         <CardSkeleton/>
         <CardSkeleton/>

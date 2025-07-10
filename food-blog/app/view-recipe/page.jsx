@@ -8,20 +8,12 @@ import ViewRecipeSkeleton from '../../components/skeletons/ViewRecipeSkeleton';
 
 const ViewRecipe = () => {
   const searchParams = useSearchParams();
-  const { data: status } = useSession();
+  const { data: session, status } = useSession();
   let searchId = searchParams.get('id');
   const [recipe, setRecipe] = useState([]);
   const [ingredient, setIngredient] = useState([]);
   const [method, setMethod] = useState([]);
   const [checkedIngredients, setCheckedIngredients] = useState([]);
-  const [loading, setloading] = useState(true);
-
-  useEffect(() => { // testing loading state
-    setTimeout(() => {
-      setloading(false);
-    }, [1000])
-    
-  })
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -58,7 +50,7 @@ const ViewRecipe = () => {
     }
   };
 
-  if(loading == true){
+  if(status === 'loading'){
     return (
       <div>
         <Nav/>

@@ -20,10 +20,10 @@ const Nav = () => {
   if (status === 'loading') {
     // Show a loading state while the session is being fetched
     return (  
-  <div className="bg-secondary rounded-lg shadow-md p-6 mt-6 max-w-full mx-6 mb-10 animate-pulse flex flex-row justify-between">
-          <div className=" p-6 xsm:w-56 w-28 h-6 bg-light flex justify-center rounded"></div>
-          <div className=" p-6 btn-circle bg-light xsm:w-56 xsm:h-6 xsm:flex xsm:justify-center xsm:rounded xsm:m-0"></div>
-        </div>
+      <div className="bg-secondary rounded-lg shadow-md p-6 mt-6 max-w-full mx-6 mb-10 animate-pulse flex flex-row justify-between">
+        <div className=" p-6 xsm:w-56 w-28 h-6 bg-light flex justify-center rounded"></div>
+        <div className=" p-6 btn-circle bg-light xsm:w-56 xsm:h-6 xsm:flex xsm:justify-center xsm:rounded xsm:m-0"></div>
+      </div>
     )
   }
 
