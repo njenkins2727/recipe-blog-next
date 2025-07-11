@@ -31,14 +31,14 @@ const ViewRecipe = () => {
   };
 
   const handleCheckboxChange = (index) => {
-    setCheckedIngredients((prevCheckedIngredients) => {
-      const newCheckedIngredients = [...prevCheckedIngredients];
-      if (newCheckedIngredients.includes(index)) {
-        newCheckedIngredients.splice(newCheckedIngredients.indexOf(index), 1);
+    setCheckedIngredients((prevChecked) => { //prevChecked === state of checked ingredients
+      const updatedChecked = [...prevChecked]; // reminder [... ] creates a shallow copy of array 
+      if (updatedChecked.includes(index)) { // index = what we are currently checking, updatedCheck = current array of what has already been checked 
+        updatedChecked.splice(updatedChecked.indexOf(index), 1); // if what we are checking is already checked = remove this 1 item from array. 
       } else {
-        newCheckedIngredients.push(index);
+        updatedChecked.push(index); //otherwise add this item to array 
       }
-      return newCheckedIngredients;
+      return updatedChecked;
     });
   };
 
@@ -46,7 +46,7 @@ const ViewRecipe = () => {
     if (checkedIngredients.length === ingredient.length) {
       setCheckedIngredients([]);
     } else {
-      setCheckedIngredients(ingredient.map((_, index) => index));
+      setCheckedIngredients(ingredient.map((value, index) => index));
     }
   };
 
