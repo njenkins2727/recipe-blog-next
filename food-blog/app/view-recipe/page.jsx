@@ -1,11 +1,20 @@
 'use client';
-export const dynamic = 'force-dynamic';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import Footer from '../../components/Footer';
 import Nav from '../../components/Nav';
 import ViewRecipeSkeleton from '../../components/skeletons/ViewRecipeSkeleton';
+import { Suspense } from 'react';
+
+const ViewRecipeWrapper = () => {
+  return (
+    <Suspense fallback={<div>Loading recipe...</div>}>
+      <ViewRecipe />
+    </Suspense>
+  );
+}
+
 
 const ViewRecipe = () => {
   const searchParams = useSearchParams();
@@ -123,6 +132,6 @@ const ViewRecipe = () => {
   );
 };
 
-export default ViewRecipe;
+export default ViewRecipeWrapper;
 
 
